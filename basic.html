@@ -1,12 +1,31 @@
 <!DOCTYPE html>
 <html>
     <body>
-        <svg width="640" height="480" style="border: 1px solid #000000;">
+        <svg id="svg" width="640" height="480" style="border: 1px solid #000000;">
             <line x1="50" y1="50" x2="350" y2="350" stroke="red"></line>
-            <circle cx="300" cy="100" r="50" fill="#ffcc00"></circle>
+            <g onclick="plus()">
+                <circle id="circle" cx="300" cy="100" r="50" fill="#ffcc00"></circle>                    
+                <text id="text" fill="green" text-anchor="middle" x="300" y="100" alignment-baseline="middle">Hello</text>
+            </g>
             <rect x="50" y="320" height="120" width="230" fill="blue"></rect>
             <polygon points="520,330,475,265,430,380" fill="white" stroke="black" stroke-width="5"></polygon>
-            <text x="320" y="240" fill="green">Hello</text>
         </svg>
+        <div id="times"></div>
     </body>
+    <script>
+        let count=0
+        function plus(){
+            count++
+            document.getElementById("text").innerHTML = count
+        }
+    </script>
+    <style>
+        #circle{
+            transition: 0.2s;
+        }
+        #circle:hover{
+            r:80;
+            cursor: pointer;
+        }
+    </style>
 </html>
